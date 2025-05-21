@@ -1,6 +1,6 @@
 # PATLAN DREAMS WEB 🌟
 
-Bienvenido al repositorio del sitio web oficial de **PATLAN DREAMS**, un espacio dedicado a la creatividad, la moda y la expresión personal.
+Bienvenido al repositorio del sitio web oficial de **PATLAN DREAMS**.
 
 ## 📌 Descripción
 
