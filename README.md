@@ -1,6 +1,6 @@
 # PATLAN DREAMS WEB 🌟
 
-Bienvenido al repositorio del sitio web oficial de **PATLAN DREAMS**.
+Bienvenido al repositorio del sitio web oficial de **PATLAN DREAM**.
 
 ## 📌 Descripción
 
@@ -27,7 +27,6 @@ Esta es una página web diseñada con el objetivo de representar visualmente a l
 - Uvicorn
 - Databases + SQLAlchemy
 - SQLite
-- Jinja2 (si se usan plantillas HTML dinámicas)
 
 ### Hosting
 
@@ -40,7 +39,9 @@ Esta es una página web diseñada con el objetivo de representar visualmente a l
 ```bash
 git clone https://github.com/YanelisGonzalez/PATLAN_DREAMS_WEB.git
 cd PATLAN_DREAMS_WEB/backend
+
 📂 Estructura del proyecto
+
 PaginaWEB/
 │
 ├── backend/
@@ -63,4 +64,4 @@ GitHub
 Puedes dejar un mensaje usando el formulario de contacto en el sitio web. Los datos se guardarán en una base de datos para su posterior gestión.
 
 ✨ Autor
-Yanelis González
+Yanelis González González
