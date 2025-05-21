@@ -4,7 +4,7 @@ Bienvenido al repositorio del sitio web oficial de **PATLAN DREAMS**.
 
 ## 📌 Descripción
 
-Esta es una página web diseñada con el objetivo de representar visualmente a la marca PATLAN DREAMS. El sitio cuenta con:
+Esta es una página web diseñada con el objetivo de representar visualmente a la empresa PATLAN DREAMS. El sitio cuenta con:
 
 - Página de inicio con presentación visual.
 - Galería de productos o inspiración.
