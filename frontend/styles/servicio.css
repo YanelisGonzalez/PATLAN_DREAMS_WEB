@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /*--------body-------*/
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: rgba(128, 128, 128, 0.3);
+    overflow-x: hidden;
+    color: #1a365d;
+    height: 100%;
+  }
+  
+  /* ---------- HEADER ---------- */
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+  
+  .logo img {
+    max-height: 90px;
+    width: 280px;
+    object-fit: contain;
+  }
+
+  
+    .main-nav {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      margin-right: 6rem;
+    }
+    
+    .main-nav a {
+      text-decoration: none;
+      color: #1a365d;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      padding: 0.3rem 0.5rem;
+    }
+    
+    .main-nav a:hover {
+      color: #4299e1;
+      transform: translateY(-2px);
+    }
+
+    a:focus,
+    button:focus {
+      outline: 2px solid #4299e1;
+      outline-offset: 2px;
+    } 
+    
+    /* ---------- DROPDOWN ---------- */
+  
+    .main-nav .dropdown {
+      position: relative;
+    }
+    
+    .main-nav .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f5f5f5;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-nav .dropdown:hover .dropdown-content {
+      display: block;
+    }
+   /* 
+    .main-nav .dropdown-content a {
+      color: #1a365d;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+  */
+
+  .main-nav .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+.dropdown-content,
+.submenu {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlaces dentro del menú desplegable y submenús */
+.dropdown-content a,
+.submenu a {
+  color: #1a365d;
+  padding: 10px 16px;
+  display: block;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Hover */
+.dropdown-content a:hover,
+.submenu a:hover {
+  background-color: #ebf8ff;
+  color: #4299e1;
+}
+
+.submenu-trigger > a::after {
+  content: '▶';
+  font-size: 0.7rem;
+  margin-left: 8px;
+  transition: transform 0.3s;
+  color: #1a365d;
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+ 
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  border-radius: 4px;
+  z-index: 1001;
+}
+
+/* Mostrar submenu al pasar el mouse */
+
+.submenu-trigger {
+  position: relative;
+}
+
+
+.submenu-trigger:hover .submenu {
+  display: block;
+}
+
+/* Cambia la flecha al pasar el mouse */
+.submenu-trigger:hover > a::after {
+  transform: rotate(90deg);
+}
+
+ 
+  
+ 
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    background-color: #888;
+    padding: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-logo img {
+    width: 200px;
+  }
+  
+  .footer-links,
+  .footer-contact {
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    display: block;
+    color: #1a365d;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a:hover {
+    color: #4299e1;
+  }
+  
+  .footer-contact p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    height: auto;
+  }  
+
+
+
+  
+  .image-container,
+  .form-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    margin-right: 0;
+    gap: 0.8rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

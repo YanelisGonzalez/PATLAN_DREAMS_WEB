@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /*--------body-------*/
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: rgba(128, 128, 128, 0.3);
+    overflow-x: hidden;
+    color: #1a365d;
+    height: 100%;
+  }
+  
+  /* ---------- HEADER ---------- */
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+  
+  .logo img {
+    max-height: 90px;
+    width: 280px;
+    object-fit: contain;
+  }
+
+  
+    .main-nav {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      margin-right: 6rem;
+    }
+    
+    .main-nav a {
+      text-decoration: none;
+      color: #1a365d;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      padding: 0.3rem 0.5rem;
+    }
+    
+    .main-nav a:hover {
+      color: #4299e1;
+      transform: translateY(-2px);
+    }
+
+    a:focus,
+    button:focus {
+      outline: 2px solid #4299e1;
+      outline-offset: 2px;
+    } 
+    
+    /* ---------- DROPDOWN ---------- */
+  
+    .main-nav .dropdown {
+      position: relative;
+    }
+    
+    .main-nav .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f5f5f5;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-nav .dropdown:hover .dropdown-content {
+      display: block;
+    }
+   /* 
+    .main-nav .dropdown-content a {
+      color: #1a365d;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+  */
+
+  .main-nav .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+.dropdown-content,
+.submenu {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlaces dentro del menú desplegable y submenús */
+.dropdown-content a,
+.submenu a {
+  color: #1a365d;
+  padding: 10px 16px;
+  display: block;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Hover */
+.dropdown-content a:hover,
+.submenu a:hover {
+  background-color: #ebf8ff;
+  color: #4299e1;
+}
+
+.submenu-trigger > a::after {
+  content: '▶';
+  font-size: 0.7rem;
+  margin-left: 8px;
+  transition: transform 0.3s;
+  color: #1a365d;
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+ 
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  border-radius: 4px;
+  z-index: 1001;
+}
+
+/* Mostrar submenu al pasar el mouse */
+
+.submenu-trigger {
+  position: relative;
+}
+
+
+.submenu-trigger:hover .submenu {
+  display: block;
+}
+
+/* Cambia la flecha al pasar el mouse */
+.submenu-trigger:hover > a::after {
+  transform: rotate(90deg);
+}
+
+
+/* ----- Sección Electricidad ----- */
+.electricidad-section {
+  background-color: #f8fbfd;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.electricidad_hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Imagen del header */
+.electriciada_hero img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  animation: fadeZoom 5s ease-in-out forwards;
+  display: block;
+}
+
+/* Animación suave de aparición y leve zoom */
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Título y párrafos */
+.electricidad-header h3 {
+  font-size: 2rem;
+  color: #004080;
+  margin-bottom: 1.5rem;
+}
+
+.electricidad-header p {
+  font-size: 1.1rem;
+  color: #4a5a6a;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 1rem;
+}
+
+/* Animación de fade-in desde abajo */
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+  transition: all 0.8s ease;
+}
+.animate:nth-child(1) { animation-delay: 0.3s; }
+.animate:nth-child(2) { animation-delay: 0.5s; }
+.animate:nth-child(3) { animation-delay: 0.7s; }
+.animate:nth-child(4) { animation-delay: 0.9s; }
+
+.animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----- Tarjetas ----- */
+.electricidad-card {
+  background-color: #ffffff;
+  color: #1f2a38;
+  width: 240px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación al hacer scroll (activada con JS) */
+.electricidad-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Animación al hacer hover */
+.electricidad-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.electricidad-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+
+
+/* Ícono con animación */
+.electricidad-card i {
+  font-size: 2.5rem;
+  color: #0078d7;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Cambia color y efecto del ícono al pasar el mouse */
+.electricidad-card:hover i {
+  transform: rotate(5deg) scale(1.1);
+  color: #00b8ff;
+}
+
+.electricidad-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.electricidad-card p {
+  font-size: 0.95rem;
+  color: #4d5b6b;
+}
+
+/* Accesibilidad para usuarios que reducen animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .electricidad-card,
+  .electricidad-card:hover,
+  .electricidad-card.in-view {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ----- Grid de tarjetas ----- */
+.electricidad-section > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+
+
+
+
+
+
+/* ---------- FOOTER ---------- */
+.footer {
+    background-color: #888;
+    padding: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-logo img {
+    width: 200px;
+  }
+  
+  .footer-links,
+  .footer-contact {
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    display: block;
+    color: #1a365d;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a:hover {
+    color: #4299e1;
+  }
+  
+  .footer-contact p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    height: auto;
+  }  
+
+
+
+  
+  .image-container,
+  .form-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    margin-right: 0;
+    gap: 0.8rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/*------------RESPONSIVE----------*/
+@media (max-width: 768px) {
+  .electricidad-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .electricidad-card {
+    width: 90%;
+    max-width: 320px;
+  }
+}
