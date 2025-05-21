@@ -23,12 +23,18 @@ async def get_favicon():
     raise HTTPException(status_code=404, detail="Favicon no encontrado")
 
 # Página Principal
+"""
 @app.get("/", response_class=HTMLResponse)
 async def serve_index():
     file_path = frontend_path / "HTML" / "index.html"
     if file_path.exists() and file_path.is_file():
         return FileResponse(file_path)
     raise HTTPException(status_code=404, detail="Página principal no encontrada")
+   
+     """
+@app.get("/")
+def read_root():
+    return {"message": "Hola desde FastAPI"}
 
 # Rutas dinámicas para otras páginas HTML
 @app.get("/{page_name}", response_class=HTMLResponse)
