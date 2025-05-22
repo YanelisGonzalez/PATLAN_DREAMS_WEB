@@ -1,11 +1,10 @@
 services:
   - type: web
     name: patlan-dreams-web
-    runtime: python
-    workingDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11
+    env: docker
     plan: free
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: PORT
+        value: 10000
+
