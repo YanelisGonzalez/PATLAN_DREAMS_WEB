@@ -25,7 +25,6 @@ Esta es una página web diseñada con el objetivo de representar visualmente a l
 - Python 3.11+
 - FastAPI
 - Uvicorn
-- Databases + SQLAlchemy
 - SQLite
 
 ### Hosting
