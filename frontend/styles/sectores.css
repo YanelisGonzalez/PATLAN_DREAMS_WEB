@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: rgba(128, 128, 128, 0.3);
   overflow-x: hidden;
   color: #1a365d;
-  height: 100%;
+
 }
 
 /* ---------- HEADER ---------- */
@@ -27,8 +31,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 9999;
+  /*right: 0;*/
+  z-index: 999;
 }
 
 .logo img {
@@ -82,16 +86,7 @@ body {
   text-decoration: none;
   display: block;
 }
-/*
-.main-nav .dropdown-content a:hover {
-  background-color: #575757;
-}
 
-/* Estilo general del trigger de submenu 
-.submenu-trigger {
-  position: relative;
-}
-*/
 /* Asegura fondo y color igual al header */
 .dropdown-content,
 .submenu {
@@ -160,39 +155,31 @@ body {
 .carousel {
   position: relative;
   width: 100%;
+  height: 100vh;
+  /*height: calc(100vh - 100px);/*compensar el header*/
+  /*margin-top: 100px; /*empuja el carrusel debajo del header*/
   overflow: hidden;
 }
 
 .carousel-track {
-  display: flex;
+  display: relative;
   transition: transform 1s ease-in-out;
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
-/*
-.carousel-slide {
-  min-width: 100%;
-  position: relative;
-  display: none;
-}
-*/
+
 
 .carousel-slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 100px);
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   z-index: 0;
 }
 
-/*
-.carousel-slide.active {
-  display: block;
-}
-  */
 
 .carousel-slide.active {
   opacity: 1;
@@ -201,9 +188,9 @@ body {
 
 .carousel-slide img {
   width: 100%;
-  height: 500px; /* Fija la altura que deseas para todas las imágenes */
+  height: 100%;
   object-fit: cover; /* Asegura que la imagen se recorte correctamente sin deformarse */
-  display: block;
+  /*display: block;*/
 }
 
 .slide-caption {

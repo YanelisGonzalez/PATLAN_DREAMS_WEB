@@ -3,6 +3,20 @@ from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
+from dotenv import load_dotenv
+import os
+
+#Para el formulario
+from fastapi import FastAPI, Form
+from fastapi.middleware.cors import CORSMiddleware
+import sqlite3
+
+#Para recibir datos del formulario en correo de empresa
+import smtplib
+from email.message import EmailMessage
+
+
+load_dotenv()  # Carga el archivo .env
 
 app = FastAPI()
 
@@ -44,68 +58,101 @@ async def serve_page(page_name: str):
     
     raise HTTPException(status_code=404, detail="Página no encontrada")
 
-""" 
-# Formulario
+#Formulario
 
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi import Form
-import databases
-import sqlalchemy
+#Recibir datos del formulario a correo de empresa
+def enviar_email(nombre, telefono, email, texto):
+    remitente = os.getenv("EMAIL_USER")
+    password = os.getenv("EMAIL_PASS")
+    destinatario = remitente #puede ser el destinatario que quieras.
 
-# Configuración DB SQLite
-DATABASE_URL = "sqlite:///./contactos.db"
-database = databases.Database(DATABASE_URL)
-metadata = sqlalchemy.MetaData()
+    #Correo para la empresa(administrador)
+    msg = EmailMessage()
+    msg['Subject'] = "Nuevo mensaje del formulario web"
+    msg['From'] = remitente
+    msg['To'] = destinatario
+    msg.set_content(f"""
+    Has recibido un nuevo mensaje:
 
-contacto = sqlalchemy.Table(
-    "contacto",
-    metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("nombre", sqlalchemy.String),
-    sqlalchemy.Column("telefono", sqlalchemy.String),
-    sqlalchemy.Column("email", sqlalchemy.String),
-    sqlalchemy.Column("mensaje", sqlalchemy.String),
-)
+    Nombre: {nombre}
+    Teléfono: {telefono}
+    Email: {email}
+    Mensaje:
+    {texto}
+    """)
+    #Correo de agradecimiento para el usuario
+    msg_usuario = EmailMessage()
+    msg_usuario['Subject'] = "Gracias por contactarnos"
+    msg_usuario['From'] = remitente
+    msg_usuario['To'] = email
+    msg_usuario.set_content(f"""
+Hola {nombre},
 
-engine = sqlalchemy.create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
-metadata.create_all(engine)
+Gracias por ponerte en contacto con nosotros. Hemos recibido tu mensaje y te responderemos pronto.
 
-# FastAPI
-app = FastAPI()
+Saludos,
+PATLAN DREAM 
+""")
 
-# CORS opcional para pruebas locales
+    try:
+        with smtplib.SMTP_SSL("smtp.ionos.es", 465) as smtp:
+            smtp.login(remitente, password)
+            smtp.send_message(msg) #envía correo a la empresa
+            smtp.send_message(msg_usuario) #envía correo al usuario
+
+        print("✅ Correo enviado correctamente")
+    except Exception as e:
+        print(f"❌ Error al enviar correo: {e}")
+
+# Permitir conexión desde el frontend (CORS)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Para pruebas; en producción usa tu dominio
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.on_event("startup")
-async def startup():
-    await database.connect()
+# Crear tabla en la base de datos si no existe
+def crear_tabla():
+    conn = sqlite3.connect("contactos.db")
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS contactos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT NOT NULL,
+            telefono TEXT,
+            email TEXT NOT NULL,
+            texto TEXT NOT NULL
+        )
+    ''')
+    conn.commit()
+    conn.close()
 
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
+crear_tabla()
 
+# Ruta para recibir el formulario
 @app.post("/enviar_formulario")
 async def enviar_formulario(
     nombre: str = Form(...),
-    telefono: str = Form(None),
+    telefono: str = Form(""),
     email: str = Form(...),
-    mensaje: str = Form(...)
+    texto: str = Form(...)
 ):
-    query = contacto.insert().values(
-        nombre=nombre,
-        telefono=telefono,
-        email=email,
-        mensaje=mensaje
-    )
-    await database.execute(query)
-    return {"mensaje": "Datos recibidos correctamente"}
+    
+    #Guardar en Base de Datos
+    conn = sqlite3.connect("contactos.db")
+    c = conn.cursor()
+    c.execute("INSERT INTO contactos (nombre, telefono, email, texto) VALUES (?, ?, ?, ?)",
+              (nombre, telefono, email, texto))
+    conn.commit()
+    conn.close()
+#Enviar correo
+    enviar_email(nombre, telefono, email, texto)
 
-"""
+    return {"mensaje": "Formulario enviado y guardado correctamente"}
+
+
 
 
 
