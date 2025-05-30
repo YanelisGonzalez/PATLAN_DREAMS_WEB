@@ -21,7 +21,11 @@ load_dotenv()  # Carga el archivo .env
 app = FastAPI()
 
 # Ruta base del frontend
-frontend_path = Path(__file__).resolve().parent.parent / "frontend"
+#frontend_path = Path(__file__).resolve().parent.parent / "frontend"
+frontend_path = Path(__file__).resolve().parent / "../frontend"
+frontend_path = frontend_path.resolve()
+
+
 
 # Montar carpetas estáticas
 app.mount("/styles", StaticFiles(directory=frontend_path / "styles"), name="styles")
@@ -41,6 +45,7 @@ async def get_favicon():
 @app.get("/", response_class=HTMLResponse)
 async def serve_index():
     file_path = frontend_path / "HTML" / "index.html"
+    print(f"📄 Buscando archivo: {file_path}")
     if file_path.exists() and file_path.is_file():
         return FileResponse(file_path)
     raise HTTPException(status_code=404, detail="Página principal no encontrada")
