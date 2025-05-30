@@ -343,6 +343,17 @@
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
   }
+
+  .footer-contact a {
+    display: block;
+    color: #1a365d;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact a:hover {
+    color: #4299e1; 
+  }
   
   .footer-legal {
     display: flex;

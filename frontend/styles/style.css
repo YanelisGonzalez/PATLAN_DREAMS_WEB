@@ -1,319 +1,245 @@
-/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: rgba(128, 128, 128, 0.3);
-    overflow-x: hidden;
-    color: #1a365d;
-    height: 100%;    
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: rgba(128, 128, 128, 0.3);
+  overflow-x: hidden;
+  color: #1a365d;
+  height: 100%;
+  padding-top: 140px; /*igual a la altura del header*/
+  margin: 0;
+  padding: 0;
 }
 
-.contenido {
-    font-family: Arial, sans-serif;
-    color: #1a365d;
-}
-
-/* Estilos del encabezado */
+/* ---------- HEADER ---------- */
 .main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 2rem;
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    height: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-}
-
-/* Estilos del logo */
-.logo {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 }
 
 .logo img {
-    max-height: 90px;
-    width: 280px;
-    object-fit: contain;
+  max-height: 90px;
+  width: 280px;
+  object-fit: contain;
 }
 
-nav {
-    margin-bottom: 0;
-}
-
-/* Estilos de la navegación */
 .main-nav {
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-    margin-right: 6rem; /* Aumentamos aún más el margen derecho */
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-right: 6rem;
 }
 
 .main-nav a {
-    text-decoration: none;
-    color: #1a365d;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    padding: 0.3rem 0.5rem;
+  text-decoration: none;
+  color: #1a365d;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  padding: 0.3rem 0.5rem;
 }
 
 .main-nav a:hover {
-    color: #4299e1; /* Un azul más brillante para el hover */
-    transform: translateY(-2px); /* Ligero movimiento hacia arriba */
+  color: #4299e1;
+  transform: translateY(-2px);
 }
 
-/* Estilos del menú desplegable */
-
-/*
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-*/
+/* ---------- DROPDOWN ---------- */
 
 .main-nav .dropdown {
-    position: relative;
-  }
+  position: relative;
+}
 
 .main-nav .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f5f5f5;
-    min-width: 160px;
-    z-index: 1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  display: none;
+  position: absolute;
+  background-color: #f5f5f5;
+  min-width: 160px;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .main-nav .dropdown:hover .dropdown-content {
-    display: block;
-  }
+.main-nav .dropdown:hover .dropdown-content {
+  display: block;
+}
 
-  .main-nav .dropdown-content a {
-    color: #1a365d;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-  }
+.main-nav .dropdown-content a {
+  color: #1a365d;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
 
-  .dropdown-content,
-  .submenu {
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+/* Asegura fondo y color igual al header */
+.dropdown-content,
+.submenu {
+background-color: #f5f5f5;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-/*enlaces dentro del menú desplegable y submenus*/
+/* Enlaces dentro del menú desplegable y submenús */
 .dropdown-content a,
 .submenu a {
-    color: #1a365d;
-    padding: 10px 16px;
-    display: block;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-  } 
+color: #1a365d;
+padding: 10px 16px;
+display: block;
+text-decoration: none;
+font-size: 0.85rem;
+transition: all 0.3s ease;
+white-space: nowrap;
+}
 
 /* Hover */
 .dropdown-content a:hover,
 .submenu a:hover {
-  background-color: #ebf8ff;
-  color: #4299e1;
+background-color: #ebf8ff;
+color: #4299e1;
 }
 
 .submenu-trigger > a::after {
-    content: '▶';
-    font-size: 0.7rem;
-    margin-left: 8px;
-    transition: transform 0.3s;
-    color: #1a365d;
+content: '▶';
+font-size: 0.7rem;
+margin-left: 8px;
+transition: transform 0.3s;
+color: #1a365d;
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+display: none;
+position: absolute;
+top: 0;
+left: 100%;
+
+min-width: 200px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+padding: 5px 0;
+border-radius: 4px;
+z-index: 1001;
+}
+
+/* Mostrar submenu al pasar el mouse */
+
+.submenu-trigger {
+position: relative;
+}
+
+
+.submenu-trigger:hover .submenu {
+display: block;
+}
+
+/* Cambia la flecha al pasar el mouse */
+.submenu-trigger:hover > a::after {
+transform: rotate(90deg);
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url("/IMG/Business Meeting in Modern Conference Room.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 90%;
+  animation: fadeInUp 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+.hero-content h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.hero-content .link-sector {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(0, 123, 255, 0.4);
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+
+.divider {
+  width: 50%;
+  margin: 20px auto;
+  border: 0;
+  border-top: 1px solid #fff;
+  opacity: 0.4;
+}
+
+.link-sector {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(0, 123, 255, 0.4);
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.link-sector:hover {
+  /*text-decoration: underline;*/
+  background-color: rgba(0, 123, 255, 0.7);
+  transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
   }
-  
-  /* Submenú oculto por defecto */
-  .submenu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-   
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    padding: 5px 0;
-    border-radius: 4px;
-    z-index: 1001;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  /* Mostrar submenu al pasar el mouse */
-  
-  .submenu-trigger {
-    position: relative;
-  }
-  
-  
-  .submenu-trigger:hover .submenu {
-    display: block;
-  }
-  
-  /* Cambia la flecha al pasar el mouse */
-  .submenu-trigger:hover > a::after {
-    transform: rotate(90deg);
-  }
-
-/* Estilos para el contenido de la página */
-body p {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
-    text-align: justify;
 }
 
-/* Estilos para los valores de la empresa */
-body p strong {
-    display: block;
-    margin-top: 1.5rem;
-    color: #000;
-    font-size: 1.2rem;
-}
 
-/* Media queries para responsividad */
-@media (max-width: 768px) {
-    .main-header {
-        padding: 1rem;
-        height: 80px;
-    }
-
-    .logo img {
-        width: 180px;
-        max-height: 70px;
-    }
-
-    .main-nav {
-        gap: 1rem;
-        margin-right: 1rem;
-    }
-
-    .main-nav a {
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
-}
-
-/* Aseguramos que el submenú no se salga de la pantalla */
-@media (min-width: 1200px) {
-    .submenu {
-        left: 100%;
-        top: -50%; /* Mantenemos el ajuste vertical */
-    }
-}
-
-/*aquí comienzan los estilos para Contactar*/
-
-
-
-.container {
-    margin: 40px auto;              /* Centra horizontalmente y deja espacio arriba */
-    background-color: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    width: 90%;
-    box-sizing: border-box;
-
-    text-decoration: none;
-    color: #1a365d;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.contacto {
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input {
-    display:block;
-    width: 100%;
-    margin-bottom: 15px;
-    border: solid 5px;
-    border-color: whitesmoke;
-    border-width: 3px;
-    border-radius: 20px;
-    padding: 10px 15px;
-    color:  #1a365d;
-}
-
-select {
-    border: solid 5px;
-    border-color: whitesmoke;
-    border-width: 3px;
-    border-radius: 20px;
-    padding: 10px 15px;
-    color:  #1a365d;
-}
-
-.comentario textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-    border: solid 5px;
-    border-color: whitesmoke;
-    border-width: 3px;
-    border-radius: 20px;
-    padding: 10px 15px;
-    color:  #1a365d;
-}
-
-button {
-    border: solid 5px;
-    border-color: whitesmoke;
-    border-width: 3px;
-    border-radius: 20px;
-    background-color: #f5f5f5; 
-    font-family: Arial, sans-serif;
-    color:#1a365d; 
-    font-size: 0.75rem;
-    padding: 15px 25px;
-}
-
-button:hover {
-    background-color: gray;
-    color:  whitesmoke;
-    transition: all 3ms ease;
-    cursor: pointer;
-}
-
-.enviar {
-    text-align: center;
-    margin-top: 20px;
-}
-
-main.contenido {
-    flex: 1; /* Ocupará todo el espacio disponible */
-    margin-top: 100px; /* para no ocultarse detrás del header */
-    padding: 2rem;
-}
 
 /* ---------- FOOTER ---------- */
 .footer {
@@ -352,6 +278,17 @@ main.contenido {
 .footer-contact p {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
+}
+
+.footer-contact a {
+  display: block;
+  color: #1a365d;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.footer-contact a:hover {
+  color: #4299e1; 
 }
 
 .footer-legal {

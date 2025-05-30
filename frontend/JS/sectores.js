@@ -1,6 +1,4 @@
-
-
-  let currentSlide = 0;
+let currentSlide = 0;
   const slides = document.querySelectorAll('.carousel-slide');
   const totalSlides = slides.length;
   
@@ -17,4 +15,4 @@
   
   setInterval(nextSlide, 4000); // Cambia de imagen cada 4 segundos
   
-
+  

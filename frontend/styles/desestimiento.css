@@ -160,11 +160,58 @@
   transform: rotate(90deg);
 }
 
- 
-  
- 
 
-  /* ---------- FOOTER ---------- */
+/*------Contenido del Desestimiento------*/
+main.desestimiento {
+           max-width: 900px;
+           margin: 160px auto;
+           background: #fff;
+           padding: 30px 40px;
+           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+           border-radius: 8px;
+           line-height: 1.6;
+           padding-top: 60px;
+    
+        }
+
+main.desestimiento h1 {
+            font-size: 2.6rem;
+            color: #004080;
+            margin-bottom: 1.5rem;
+            margin-top: 10px; 
+            border-bottom: 3px solid #004080;
+            padding-bottom: 8px;
+        }
+
+main.desestimiento h2, main.legal h3 {
+            color: #0066cc;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+ main.desestimiento p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+main.desestimiento ul {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+main.desestimiento ul li {
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+        }
+main.desestimiento a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        
+main.desestimiento a:hover {
+            color: #004080;
+        }
+
+ /* ---------- FOOTER ---------- */
   .footer {
     background-color: #888;
     padding: 2rem;
@@ -202,6 +249,17 @@
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
   }
+
+  .footer-contact a {
+    display: block;
+    color: #1a365d;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact a:hover {
+    color: #4299e1; 
+  }
   
   .footer-legal {
     display: flex;
@@ -218,35 +276,3 @@
     font-size: 0.8rem;
     color: #666;
   }
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-  .content-container {
-    flex-direction: column;
-    height: auto;
-  }  
-
-
-
-  
-  .image-container,
-  .form-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .form-container {
-    padding: 20px;
-  }
-
-  .main-nav {
-    flex-direction: column;
-    margin-right: 0;
-    gap: 0.8rem;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}

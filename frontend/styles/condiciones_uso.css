@@ -147,103 +147,55 @@ body {
   transform: rotate(90deg);
 }
 
-/*Contenido*/
-
-.contenido {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 30px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.8;
-  color: #222;
-  font-size: 18px;
-  text-align: justify;
+/*------Contenido de las Condiciones Generales de uso-------*/
+main.uso {
+    max-width: 900px;
+    margin: 160px auto;
+    padding: 40px;
+    background: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-.contenido p {
-  margin-bottom: 20px;
+main.uso h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+    margin-top: 10px;
+    text-align: center;
+    color: #004080;
+    border-bottom: 3px solid #004080;
+    padding-bottom: 8px;
 }
 
-.contenido strong {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 19px;
-  color: #005087; /* Azul corporativo sugerido */
+main.uso h3 {
+    font-size: 1.4em;
+    margin-top: 30px;
+    color: #0066cc;
 }
 
-
-/* ---------- GALERÍA (CAROUSEL HORIZONTAL) ---------- */
-.carousel {
-  position: relative;
-  max-width: 100%;
-  /*height: 500px; */
-  height: 100vh;
-  overflow: hidden;
+main.uso p {
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 1.05em;
 }
 
-.carousel-track {
-  position: relative;
-  transition: transform 1s ease-in-out;
-  width: 100%;
-  height: 100%;
+@media screen and (max-width: 768px) {
+    main.uso {
+        padding: 20px;
+        margin: 30px 10px;
+    }
+
+    main.uso h1 {
+        font-size: 1.6em;
+    }
+
+    main.uso
+     h3 {
+        font-size: 1.2em;
+    }
 }
-
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  
-  transition: opacity 1.5s ease-in-out;
-  z-index: 0;
-}
-
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  
-  display:block
-}
-
-.carousel-slide.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-/* Fade-in caption encima de la imagen */
-.slide-caption {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con transparencia */
-  color: white;
-
- /* padding: 10px 20px;
-  font-size: 4rem;
-  font-weight: bold;
-  border-radius: 6px;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;*/
-  font-size: 4rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 15px 30px;
-  border-radius: 8px;
-}
-
-/* Muestra la caption solo cuando el slide está activo */
-/*.carousel-slide.active .slide-caption {
-  opacity: 1;
-}
-*/
-
-
 
 /* ---------- FOOTER ---------- */
 .footer {

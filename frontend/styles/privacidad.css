@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: rgba(128, 128, 128, 0.3);
+    overflow-x: hidden;
+    color: #1a365d;
+    height: 100%;
+  }
+  
+  /* ---------- HEADER ---------- */
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+  
+  .logo img {
+    max-height: 90px;
+    width: 280px;
+    object-fit: contain;
+  }
+  
+  .main-nav {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-right: 6rem;
+  }
+  
+  .main-nav a {
+    text-decoration: none;
+    color: #1a365d;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .main-nav a:hover {
+    color: #4299e1;
+    transform: translateY(-2px);
+  }
+  
+  /* ---------- DROPDOWN ---------- */
+
+  .main-nav .dropdown {
+    position: relative;
+  }
+  
+  .main-nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f5f5f5;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-nav .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .main-nav .dropdown-content a {
+    color: #1a365d;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Asegura fondo y color igual al header */
+.dropdown-content,
+.submenu {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlaces dentro del menú desplegable y submenús */
+.dropdown-content a,
+.submenu a {
+  color: #1a365d;
+  padding: 10px 16px;
+  display: block;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Hover */
+.dropdown-content a:hover,
+.submenu a:hover {
+  background-color: #ebf8ff;
+  color: #4299e1;
+}
+
+.submenu-trigger > a::after {
+  content: '▶';
+  font-size: 0.7rem;
+  margin-left: 8px;
+  transition: transform 0.3s;
+  color: #1a365d;
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+ 
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  border-radius: 4px;
+  z-index: 1001;
+}
+
+/* Mostrar submenu al pasar el mouse */
+
+.submenu-trigger {
+  position: relative;
+}
+
+
+.submenu-trigger:hover .submenu {
+  display: block;
+}
+
+/* Cambia la flecha al pasar el mouse */
+.submenu-trigger:hover > a::after {
+  transform: rotate(90deg);
+}
+
+  
+  /* ---------- CONTENIDO ---------- */
+  .privacidad {
+    max-width: 900px;
+    margin: 160px auto;
+    background: #fff;
+    padding: 30px 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    font-size: 18px;
+    text-align: justify;
+    padding-top: 60px;
+  }
+
+  .privacidad h1 {
+            font-size: 2.6rem;
+            color: #004080;
+            margin-bottom: 1.5rem;
+            margin-top: 10px; 
+            border-bottom: 3px solid #004080;
+            padding-bottom: 8px;
+        }
+
+.privacidad h3 {
+            color: #0066cc;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+  
+  .privacidad p {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .privacidad strong {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 19px;
+    color: #005087; /* Azul corporativo sugerido */
+  }
+
+  .privacidad ul {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+.privacidad ul li {
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+        }
+
+
+      
+  
+  /* ---------- GALERÍA (CAROUSEL HORIZONTAL) ---------- */
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 100px;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  .carousel-track.active {
+    cursor: grabbing;
+  }
+  
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* ---------- FOOTER ---------- */
+  .footer {
+    background-color: #888;
+    padding: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-logo img {
+    width: 200px;
+  }
+  
+  .footer-links,
+  .footer-contact {
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    display: block;
+    color: #1a365d;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a:hover {
+    color: #4299e1;
+  }
+  
+  .footer-contact p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .footer-contact a {
+    display: block;
+    color: #1a365d;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact a:hover {
+    color: #4299e1; 
+  }
+  
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+  }
