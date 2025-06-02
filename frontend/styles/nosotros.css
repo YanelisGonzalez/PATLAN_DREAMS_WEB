@@ -146,7 +146,7 @@
 
 .submenu-trigger > a::after {
   content: '▶';
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   margin-left: 8px;
   transition: transform 0.3s;
   color: #1a365d;

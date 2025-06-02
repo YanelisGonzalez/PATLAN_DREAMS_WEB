@@ -273,7 +273,8 @@ main.cookies a:hover {
   }
 
   /*--------Política de cookies------*/
- .cookie-banner {
+.cookie-banner {
+  display: none; /* Oculto por defecto */
   position: fixed;
   bottom: 0;
   left: 0;
@@ -281,7 +282,7 @@ main.cookies a:hover {
   background-color: #004080;
   color: #fff;
   padding: 15px 20px;
-  display: flex;
+  display: flex; /* JS lo vuelve a mostrar si aplica */
   justify-content: space-between;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -314,6 +315,9 @@ main.cookies a:hover {
 .cookie-btn:hover {
   background-color: #ffca28;
 }
+
+
+
 
 /*----ocultar el banner-----*/
 /*

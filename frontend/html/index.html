@@ -14,7 +14,16 @@
         <div class="logo">
             <img src="/IMG/logo.png" alt="Logo">
         </div>
-        <nav class="main-nav">
+
+        <p id="mensaje"></p>
+
+        <!-- Botón hamburguesa solo para móviles -->
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        ☰
+        </button>
+
+        <nav class="main-nav" id="main-nav"...>
             <a href="/nosotros.html">Quiénes somos</a>
             <div class="dropdown">
                 <a href="/sectores.html" class="dropdown-trigger">Sectores</a>
@@ -42,7 +51,7 @@
                     <div class="submenu-trigger">
                         <a>Electrónica</a>
                         <div class="submenu">
-                            <a>Componentes Electrónicos: Resistencias, Capacitores, microchips, etc.</a>
+                            <a>Componentes Electrónicos</a>
                             <a>Herramientas</a>
                             <a>Instrumentos de medición</a>
                             <a>Cables</a>
@@ -52,7 +61,7 @@
                         <a>Eléctricidad</a>
                         <div class="submenu">
                             <a>Componentes</a>
-                            <a>Cables, canalizaciones y bandejas portacables</a>
+                            <a>Cables y canalizaciones</a>
                             <a>Herramientas</a>
                             <a>Iluminación</a>
                         </div>
@@ -180,6 +189,14 @@
             <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <div id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="cookie-message">
+      <p>Usamos cookies para mejorar tu experiencia en nuestro sitio. Al continuar navegando, aceptas nuestra 
+        <a href="/cookies.html">Política de Cookies</a>.
+      </p>
+    </div>
+    <button id="accept-cookies-btn" class="cookie-btn">Aceptar</button>
+  </div>
     <script src="/JS/inicio.js" defer></script>
   
 </body>

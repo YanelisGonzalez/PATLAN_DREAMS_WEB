@@ -159,6 +159,22 @@ async def enviar_formulario(
 
     return {"mensaje": "Formulario enviado y guardado correctamente"}
 
+#Política de cookies
+from fastapi import Request
+from fastapi.templating import Jinja2Templates
+
+templates = Jinja2Templates(directory="backend/templates")
+
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request):
+    cookies_accepted = request.cookies.get("cookiesAccepted", "false")
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "show_cookie_banner": cookies_accepted != "true"
+    })
+
+
+
 
 
 

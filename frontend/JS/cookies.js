@@ -1,16 +1,32 @@
 <script>
+  // Función para obtener una cookie por nombre
+  function getCookie(name) {
+    const value = "; " + document.cookie;
+    const parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  // Función para establecer una cookie (duración: 1 año)
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     const banner = document.getElementById("cookie-consent-banner");
     const acceptBtn = document.getElementById("accept-cookies-btn");
 
-    // Mostrar banner solo si no se ha aceptado antes
-    if (!localStorage.getItem("cookiesAccepted")) {
+    if (!banner || !acceptBtn) return;
+
+    // Mostrar banner solo si no se ha aceptado
+    if (!getCookie("cookiesAccepted")) {
       banner.style.display = "flex";
     }
 
-    // Evento de clic en el botón
     acceptBtn.addEventListener("click", function () {
-      localStorage.setItem("cookiesAccepted", "true");
+      setCookie("cookiesAccepted", "true", 365); // guardar por 1 año
       banner.style.display = "none";
     });
   });
