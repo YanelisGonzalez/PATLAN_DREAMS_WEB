@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PD: Proveedor integral de productos para sanidad, informática, electrónica, industria y más.">
+
     <title>PD</title>
     <link rel="stylesheet" href="/styles/sanidad.css"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/favicon.png">
 
 </head>
 <body>
@@ -14,13 +17,16 @@
         <div class="logo">
             <img src="/IMG/logo.png" alt="Logo">
         </div>
+        <!-- Botón hamburguesa visible solo para móviles -->
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
         <nav class="main-nav">
             <a href="/nosotros.html">Quiénes somos</a>
             <div class="dropdown">
                 <a href="/sectores.html" class="dropdown-trigger">Sectores</a>
                 <div class="dropdown-content">
                     <div class="submenu-trigger">
-                        <a href="/sanidad.html">Sanidad</a>
+                        <a href="/sanidad.html" class="dropdown-toggle">Sanidad</a>
                         <div class="submenu">
                             <a>Equipos médicos y de Laboratorio</a>
                             <a>Reactivos de Laboratorio</a>
@@ -29,7 +35,7 @@
                         </div>
                     </div>
                     <div class="submenu-trigger">
-                        <a href="/informatica.html">Informática</a> 
+                        <a href="/informatica.html" class="dropdown-toggle">Informática</a> 
                         <div class="submenu">
                             <a>Ordenadores y portátiles</a>
                             <a>Printers</a>
@@ -40,7 +46,7 @@
                         </div>
                     </div>
                     <div class="submenu-trigger">
-                        <a href="/electricidad.html">Electrónica</a>
+                        <a href="/electricidad.html" class="dropdown-toggle">Electrónica</a>
                         <div class="submenu">
                             <a>Componentes Electrónicos</a>
                             <a>Herramientas</a>
@@ -49,7 +55,7 @@
                         </div>
                     </div>
                     <div class="submenu-trigger"> 
-                        <a href="/electricidad.html">Eléctricidad</a>
+                        <a href="/electricidad.html" class="dropdown-toggle">Eléctricidad</a>
                         <div class="submenu">
                             <a>Componentes</a>
                             <a>Cables y canalizaciones</a>
@@ -58,7 +64,7 @@
                         </div>
                     </div>
                     <div class="submenu-trigger">
-                        <a href="/industria.html">Industria</a>
+                        <a href="/industria.html" class="dropdown-toggle">Industria</a>
                         <div class="submenu">
                             <a>Material industrial</a>
                             <a>Máquinas herramientas</a> 
@@ -66,7 +72,7 @@
                         </div>
                     </div>
                     <div class="submenu-trigger">
-                        <a href="/alimentacion.html">Alimentos y Bebidas</a>
+                        <a href="/alimentacion.html" class="dropdown-toggle">Alimentos y Bebidas</a>
                         <div class="submenu">
                             <a>Productos alimenticios</a>
                             <a>Refrescos, cervezas y vinos</a> 

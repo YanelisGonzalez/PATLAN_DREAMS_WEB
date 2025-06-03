@@ -10,10 +10,10 @@
     background-color: rgba(128, 128, 128, 0.3);
     overflow-x: hidden;
     color: #1a365d;
-    height: 100%;
-    padding-top: 140px; /*igual a la altura del header*/
+    /*height: 100%;
+    padding-top: 140px;
     margin: 0;
-    padding: 0;
+    padding: 0;*/
   }
   
   /* ---------- HEADER ---------- */
@@ -43,6 +43,8 @@
     gap: 1.2rem;
     align-items: center;
     margin-right: 6rem;
+
+    margin-bottom: 0;
   }
   
   .main-nav a {
@@ -62,29 +64,37 @@
   
   /* ---------- DROPDOWN ---------- */
   
-  .main-nav .dropdown {
+  .main-nav .dropdown,
+  .submenu-trigger {
     position: relative;
   }
   
-  .main-nav .dropdown-content {
+  .main-nav .dropdown-content, 
+  .submenu {
     display: none;
     position: absolute;
     background-color: #f5f5f5;
     min-width: 160px;
-    z-index: 1;
+    z-index: 1001;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .main-nav .dropdown:hover .dropdown-content {
+  .main-nav .dropdown:hover .dropdown-content,
+  .submenu-trigger:hover .submenu {
     display: block;
   }
   
-  .main-nav .dropdown-content a {
+  /*
+  .main-nav .dropdown-content a,
+  .submenu {
     color: #1a365d;
-    padding: 10px;
+    padding: 10px 16px;
     text-decoration: none;
     display: block;
-  }
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }*/
   
   /*.dropdown {
     position: relative;
@@ -157,16 +167,16 @@
   
   /* Submenú oculto por defecto */
   .submenu {
-  display: none;
+  /*display: none;
   position: absolute;
-  top: 0;
-  left: 100%;
-  
   min-width: 200px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1001;*/
+
+  top: 0;
+  left: 100%;
   padding: 5px 0;
   border-radius: 4px;
-  z-index: 1001;
   }
   
   /* Mostrar submenu al pasar el mouse */
@@ -187,7 +197,7 @@
   
   /*--------IMAGEN DEL ENCABEZADO-------*/
  /* ---------- GALERÍA (CAROUSEL HORIZONTAL) ---------- */
- @keyframes zoomInOut {
+ /*@keyframes zoomInOut {
     0% {
       transform: scale(1);
     }
@@ -197,7 +207,7 @@
     100% {
       transform: scale(1);
     }
-  }
+  }*/
  
  .carousel {
     position: relative;
@@ -225,18 +235,6 @@
     position: relative;
   }
 
-  @keyframes zoomInOut {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.08);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
   
   .carousel-slide img {
     width: 100%;
@@ -360,7 +358,7 @@
     font-size: 1rem;
   }
   
-  @keyframes slideFadeIn {
+  /*@keyframes slideFadeIn {
     from {
       opacity: 0;
       transform: translateY(30px);
@@ -369,7 +367,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
+  }*/
   
   .parrafo-info {
     background-color: rgba(255, 255, 255, 0.8);
@@ -455,15 +453,123 @@
     color: #666;
   }
   
-  @media (max-width: 768px) {
+ /* @media (max-width: 768px) {
     .oferta {
-      width: 48%; /* Dos imágenes por fila con pequeño espacio entre ellas */
-    }
-  }
+      width: 48%;*/ /* Dos imágenes por fila con pequeño espacio entre ellas */
+ /*   }
+  }*/
   
-  @media (max-width: 480px) {
+ /* @media (max-width: 480px) {
     .oferta {
-      width: 100%; /* Una imagen por fila en móviles muy pequeños */
-    }
+      width: 100%;*/ /* Una imagen por fila en móviles muy pequeños */
+  /*  }
+  }*/
+  /* === ANIMACIONES === */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- MENÚ HAMBURGUESA ---------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #1a365d;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .logo img {
+    width: 200px;
+    max-height: 70px;
+    margin-bottom: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 9998;
+    transition: max-height 0.3s ease;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .dropdown-content,
+  .submenu {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .submenu a {
+    padding-left: 2rem;
+  }
+
   
+
+
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .footer-logo img {
+    width: 160px;
+  }
+
+  .footer-legal {
+    font-size: 0.75rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-nav a {
+    font-size: 0.95rem;
+  }
+
+  .logo img,
+  .footer-logo img {
+    width: 140px;
+  }
+}
