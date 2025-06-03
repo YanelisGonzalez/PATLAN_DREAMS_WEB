@@ -63,5 +63,42 @@
       }
     });
   });
+
+   // Menú hamburguesa
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('main-nav');
+
+  if (toggleBtn && navMenu) {
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      toggleBtn.classList.toggle('open');
+    });
+  }
+
+  // Submenús desplegables
+  const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const submenu = toggle.nextElementSibling;
+
+      if (submenu && submenu.classList.contains('submenu')) {
+        submenu.classList.toggle('open');
+
+        // Opcional: cerrar los demás submenús
+        submenuToggles.forEach(otherToggle => {
+          if (otherToggle !== toggle) {
+            const otherSubmenu = otherToggle.nextElementSibling;
+            if (otherSubmenu && otherSubmenu.classList.contains('submenu')) {
+              otherSubmenu.classList.remove('open');
+            }
+          }
+        });
+      }
+    });
+  });
+
+
   
   
