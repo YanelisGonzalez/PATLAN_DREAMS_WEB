@@ -182,8 +182,8 @@
   }
 
   // Menú hamburguesa
-  const toggleBtn = document.getElementById("menu-toggle");
-  const navMenu = document.getElementById("main-nav");
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".main-nav");
 
   if (toggleBtn && navMenu) {
     toggleBtn.addEventListener("click", () => {

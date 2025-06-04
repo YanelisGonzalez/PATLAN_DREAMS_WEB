@@ -363,6 +363,7 @@ transform: rotate(90deg);
   .main-nav a {
     font-size: 1rem;
     padding: 1rem;
+    margin-top: 0;
   }
 
   .dropdown-content,
@@ -435,3 +436,8 @@ transform: rotate(90deg);
     width: 140px;
   }
 }
+/* Espaciado dinámico para primer enlace cuando se abre el menú hamburguesa */
+.with-top-space {
+  margin-top: 1rem; /* Ajusta si quieres más o menos espacio */
+}
+

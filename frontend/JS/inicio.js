@@ -69,11 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('main-nav');
 
   if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      toggleBtn.classList.toggle('open');
-    });
-  }
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    toggleBtn.classList.toggle('open');
+
+    const firstLink = navMenu.querySelector('a');
+
+    if (isOpen) {
+      firstLink?.classList.add('with-top-space');
+    } else {
+      firstLink?.classList.remove('with-top-space');
+    }
+  });
+}
+
 
   // Submenús desplegables
   const submenuToggles = document.querySelectorAll('.submenu-toggle');

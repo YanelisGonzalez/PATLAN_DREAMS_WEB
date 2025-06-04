@@ -181,7 +181,9 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    margin-top: 100px
+    margin-top: 100px;
+    margin-bottom: 0; /* Evita espacio extra */
+    padding-bottom: 0;
   }
   
   .carousel-track {
@@ -205,8 +207,10 @@
   
   .carousel-slide img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
+    display: block;
+    margin: 0;
   }
   
   /* ---------- FOOTER ---------- */
@@ -320,6 +324,11 @@
 
   .main-nav.open {
     display: flex;
+    padding-top: 2rem; /* <-- espacio entre hamburguesa y "Quiénes somos" */
+  }
+
+  .main-nav.open a:first-of-type {
+    margin-top: 10px; /* espacio adicional sólo arriba del primer enlace */
   }
 
   .main-nav a {
@@ -343,8 +352,16 @@
     font-size: 16px;
   }
 
+  .carousel {
+    height: auto; /* ya no 100vh */
+    margin-bottom: 10px;
+    
+  }
+
   .carousel-slide img {
-    max-height: 300px;
+    max-height: 250px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
   }
 
@@ -382,6 +399,10 @@
   .contenido {
     padding: 10px;
     font-size: 15px;
+  }
+
+  .carousel {
+    height: auto;
   }
 
   .carousel-slide img {
