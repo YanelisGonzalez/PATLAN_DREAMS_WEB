@@ -41,22 +41,21 @@ cd PATLAN_DREAMS_WEB/backend
 
 📂 Estructura del proyecto
 
-PaginaWEB/
-│
+WEB_PD/
+├── .venv/
 ├── backend/
-│   ├── main.py
-│   └── requirements.txt
-│
+│   ├── .env
+│   ├── contatos.db
+│   ├── database.py
+│   └── main.py
 ├── frontend/
 │   ├── html/
-│   ├── css/
-│   ├── js/
+│   ├── styles/
+│   ├── JS/
 │   └── IMG/
-│
-├── render.yaml
-└── README.md
-
-
+├── .gitignore
+├── README.md
+└── requirements.txt
 GitHub
 
 📬 Contacto
