@@ -25,7 +25,7 @@ Esta es una página web diseñada con el objetivo de representar visualmente a l
 - Python 3.11+
 - FastAPI
 - Uvicorn
-- SQLite
+- AWS
 
 ### Hosting
 
@@ -56,7 +56,7 @@ WEB_PD/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-GitHub
+
 
 📬 Contacto
 Puedes dejar un mensaje usando el formulario de contacto en el sitio web. Los datos se guardarán en una base de datos para su posterior gestión.
